@@ -9,4 +9,4 @@ def search(text):
     search_box = driver.find_element_by_name('q')
     search_box.send_keys(text)
     search_box.submit()
-search("mayank mahavar")
+#search("mayank mahavar")

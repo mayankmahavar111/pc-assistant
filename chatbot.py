@@ -116,8 +116,10 @@ if __name__ == '__main__':
             comment_id = row['link_id']
             parent_data=find_parent(parent_id)
 
+            if score == None:
+                continue
 
-            if score >= 3:
+            if score >= 3 :
                 if acceptable(body):
                     existing_score= find_score(parent_id)
                     if existing_score :
@@ -130,7 +132,7 @@ if __name__ == '__main__':
                             paired+=1
                         else:
                             sql_insert_no_parent(comment_id,parent_id,body,score,subreddit,created_utc)
-                        if row_count % 100000 == 0:
-                            print('Total Rows Read: {}, Paired Rows: {}, Time: {}'.format(row_count, paired,
-                                                                                          str(datetime.now())))
+            if row_count % 100000 == 0:
+                print('Total Rows Read: {}, Paired Rows: {}, Time: {}'.format(row_count, paired,
+                                                                              str(datetime.now())))
 #data_entry(db)
